@@ -3,8 +3,11 @@ __author__ = 'alomakin'
 from xml.dom.minidom import parse
 import io
 
-dom1 = parse( u'd:/Files/dic_33.xml' )
-f = io.open( u'd:/Files/dic_33.bxd', 'w', encoding='utf-16' )
+ndic = 58
+path = r'c:\Users\alomakin.lomakin-home\AppData\Local\ABBYY\Lingvo\15.0\Dic\TutorDict'
+
+dom1 = parse( path + '/dic_{}FrRu.xml'.format( ndic ) )
+f = io.open( path + '/dic_{}.bxd'.format( ndic ), 'w', encoding='utf-16' )
 
 for cards in dom1.getElementsByTagName( 'card' ):
     text_word = cards.getElementsByTagName( 'word' )[0].firstChild.data
